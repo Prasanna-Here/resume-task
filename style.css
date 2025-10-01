@@ -9,6 +9,7 @@ body {
     line-height: 1.6;
     background-color: #fff;
     color: #333;
+    overflow-x: hidden;
 }
 
 .container {
@@ -18,7 +19,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100px;
 }
 
 header.navbar{
@@ -26,6 +26,10 @@ header.navbar{
     align-items: center;
     justify-content: space-between;
     padding: 20px 0;
+}
+
+.navbar .container {
+    height: 72px;
 }
 
 .logo{
@@ -69,4 +73,238 @@ header.navbar{
 
 .btn.primary:hover {
     background-color: #e6004c;
+}
+
+/* =====================================
+   Hero Section (background, layout, rings)
+   - Background uses figma linear gradient (#FFBFCA -> #FFE7EB)
+   - Circles are drawn with a centered pseudo-element on .hero-image
+   - Overflow hidden prevents sideways/bottom bleed
+   ===================================== */
+.hero {
+  background: linear-gradient(0deg, #FFBFCA 0%, #FFE7EB 100%);
+  position: relative;
+  padding: 60px 0px -10px;
+  overflow: hidden;
+}
+
+/* Disable the old page-wide ring; we center rings on the image wrapper */
+.hero::before { content: none; }
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 36px;
+}
+
+/* Left Text (headline + body + CTAs) */
+.hero .text {
+  flex: 1 1 50%;
+  max-width: 600px;
+}
+
+.hero .text h1 {
+  font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+
+.hero .text .highlight {
+  color: #ff2e63;
+}
+
+.hero .text .underline { position: static; }
+.hero .text .underline::after { display: none; }
+
+.hero .text p {
+  font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  max-width: 560px;
+  font-size: 0.95rem;
+  color: #555;
+  margin: 18px 0 34px;
+  line-height: 1.7;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  background-color: #ff2e63;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e6004c;
+}
+
+.btn.outline {
+  background-color: #fff;
+  color: #ff2e63;
+  border: 2px solid #ff2e63;
+  box-shadow: 0 8px 18px rgba(255, 46, 99, 0.18);
+}
+
+/* Right Image Section */
+/* Image wrapper for the model; acts as the anchor for concentric rings */
+.hero-image {
+  flex: 1 1 45%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  margin-top: 60px; /* lowered further per request */
+}
+
+/* Concentric circle behind the model (Figma: 634x634, radial #FFE4E9 -> #FFCBD4) */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, #FFE4E9 0%, #FFCBD4 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Fixed image size from Figma for consistent composition */
+.hero-image img {
+  width: 460px;
+  height: 660px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating Boxes */
+.rating-box, .resume-count {
+  position: absolute;
+  background: #fff;
+  color: #333;
+  padding: 16px 22px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Rating card layout: left column big score, right column stars over label */
+.rating-box {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 6px;
+  top: 260px;
+  left: -10px;
+  z-index: 2;
+  min-height: 100px;
+}
+ .rating-box .score { grid-row: 1 / span 2; color: #1bb59a; font-size: 3.1rem; font-weight: 800; line-height: 1; height: 100%; display: flex; align-items: center; }
+ .rating-box .stars { grid-column: 2; grid-row: 1; color: #ffb300; letter-spacing: 2px; display: block; }
+ .rating-box .label { grid-column: 2; grid-row: 2; color: #222; font-weight: 700; display: block; font-size: 1.1rem; }
+
+/* Resume created badge (cap + copy) anchored to bottom-right of image) */
+.resume-count {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  bottom: 30px;
+  right: 20px;
+  padding: 18px 22px;
+  z-index: 2;
+}
+.resume-count img { width: 58px; height: 58px; }
+.resume-count .resume-text strong { font-size: 1.4rem; color: #000; }
+.resume-count .resume-text span { display: block; font-weight: 500; color: #666; line-height: 1.2; }
+
+/* Features Section */
+.features {
+  padding: 90px 0 100px;
+}
+
+.features .container {
+  flex-direction: column;
+}
+
+.section-pill {
+  align-self: center;
+  background: #ffe5ec;
+  color: #222;
+  border-radius: 24px;
+  padding: 10px 18px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  margin-bottom: 18px;
+}
+
+.features h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 36px;
+}
+
+.features-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 28px 28px 30px;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.08);
+}
+
+.card-illustration {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 10px auto 18px;
+  display: block;
+}
+
+.card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.card p {
+  font-size: 0.98rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero .text h1 { font-size: 2.4rem; }
+}
+
+@media (max-width: 640px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .hero-content { gap: 30px; }
 }
