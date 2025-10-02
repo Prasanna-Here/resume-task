@@ -53,6 +53,11 @@ header.navbar{
     font-weight: 400;
     color: #666;
 }
+
+.nav-links{
+  width: 519px;
+}
+
 .nav-links a {
     margin: 0 15px;
     text-decoration: none;
@@ -61,14 +66,18 @@ header.navbar{
 }
 
 .btn.primary {
-    background-color: #ff2e63;
+    background-color: #FA1239;
     color: #fff;
-    padding: 10px 25px;
+    width: 147px;
+    height: 46px;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: none;
-    box-shadow: 0 4px 10px rgba(255, 46, 99, 0.3);
+    box-shadow: 0 4px 10px rgba(250, 18, 57, 0.3);
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn.primary:hover {
@@ -102,12 +111,12 @@ header.navbar{
 /* Left Text (headline + body + CTAs) */
 .hero .text {
   flex: 1 1 50%;
-  max-width: 600px;
+  max-width: 620px;
 }
 
 .hero .text h1 {
   font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 3.8rem;
+  font-size: 64px;
   font-weight: 800;
   color: #000;
   line-height: 1.1;
@@ -123,8 +132,8 @@ header.navbar{
 
 .hero .text p {
   font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  max-width: 560px;
-  font-size: 0.95rem;
+  max-width: 485px;
+  font-size: 16px;
   color: #555;
   margin: 18px 0 34px;
   line-height: 1.7;
@@ -137,13 +146,17 @@ header.navbar{
 }
 
 .btn {
-  background-color: #ff2e63;
+  background-color: #FA1239;
   color: #fff;
-  padding: 14px 26px;
+  width: 157px;
+  height: 46px;
   border-radius: 30px;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
@@ -151,10 +164,14 @@ header.navbar{
 }
 
 .btn.outline {
+  font-size: 18px;
+  font-weight: 400;
   background-color: #fff;
-  color: #ff2e63;
-  border: 2px solid #ff2e63;
-  box-shadow: 0 8px 18px rgba(255, 46, 99, 0.18);
+  color: #FA1239;
+  border: 2px solid #FA1239;
+    box-shadow: 0 8px 18px rgba(250, 18, 57, 0.18);
+  width: 202px;
+  height: 46px;
 }
 
 /* Right Image Section */
@@ -198,8 +215,8 @@ header.navbar{
   position: absolute;
   background: #fff;
   color: #333;
-  padding: 16px 22px;
-  border-radius: 16px;
+  padding: 15px 20px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 0.95rem;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -220,7 +237,7 @@ header.navbar{
 }
  .rating-box .score { grid-row: 1 / span 2; color: #1bb59a; font-size: 3.1rem; font-weight: 800; line-height: 1; height: 100%; display: flex; align-items: center; }
  .rating-box .stars { grid-column: 2; grid-row: 1; color: #ffb300; letter-spacing: 2px; display: block; }
- .rating-box .label { grid-column: 2; grid-row: 2; color: #222; font-weight: 700; display: block; font-size: 1.1rem; }
+ .rating-box .label { grid-column: 2; grid-row: 2; color: #222; font-weight: 700; display: block; font-size: 24px; }
 
 /* Resume created badge (cap + copy) anchored to bottom-right of image) */
 .resume-count {
@@ -233,7 +250,7 @@ header.navbar{
   z-index: 2;
 }
 .resume-count img { width: 58px; height: 58px; }
-.resume-count .resume-text strong { font-size: 1.4rem; color: #000; }
+.resume-count .resume-text strong { font-size: 17px; color: #000; }
 .resume-count .resume-text span { display: block; font-weight: 500; color: #666; line-height: 1.2; }
 
 /* Features Section */
@@ -249,29 +266,32 @@ header.navbar{
   align-self: center;
   background: #ffe5ec;
   color: #222;
-  border-radius: 24px;
+  border-radius: 6px;
   padding: 10px 18px;
   font-weight: 700;
+  font-size: 18px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
   margin-bottom: 18px;
 }
 
 .features h3 {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 26px;
   font-weight: 700;
   color: #111;
-  margin-bottom: 36px;
+  margin-bottom: 50px;
 }
 
 .features-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 20px;
 }
 
 .card {
+  width:298.75px;
+  height: 450px;
   background: #fff;
   border: 1px solid #eee;
   border-radius: 14px;
@@ -280,8 +300,8 @@ header.navbar{
 }
 
 .card-illustration {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 149.02px;
   object-fit: contain;
   margin: 10px auto 18px;
   display: block;
